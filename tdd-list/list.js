@@ -48,7 +48,7 @@ function getAdmins(data) {
 }
 
 /**
- * @description filter users by name, email and username
+ * @description filter users by name, surname email and username
  * @param {array} data
  * @param {string} search
  * @returns {array}
