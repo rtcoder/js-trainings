@@ -1,0 +1,22 @@
+{
+  "name": "tdd-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^27.4.2",
+    "jest-fetch-mock": "^3.0.3"
+  }
+}
