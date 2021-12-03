@@ -66,5 +66,8 @@ test('test mapUser', () => {
     expect(mappedUser).toHaveProperty('name', user.name);
     expect(mappedUser).toHaveProperty('email', user.email);
     expect(mappedUser).toHaveProperty('address', `${user.address.city}, ${user.address.country}`);
-    expect(mappedUser).toHaveProperty('phone', user.phone.replaceAll(/\D/, ''));
+    expect(mappedUser).toHaveProperty('phone');
+    expect([mappedUser.phone]).toEqual(
+        expect.arrayContaining([expect.stringMatching(/^([\d\s()]+)$/)])
+    );
 });
