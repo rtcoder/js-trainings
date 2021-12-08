@@ -7,23 +7,17 @@
  */
 function paginate(data, page, limit) {
   if (data === null || data === undefined) {
-    return null;
+    return [];
   }
 
   let startIndex = limit * page - limit;
   let endIndex = limit * page;
 
   if (startIndex > data.length) {
-    return null;
+    return [];
   }
 
-  let users = data.slice(startIndex, endIndex);
-
-  if (users === undefined) {
-    return null;
-  }
-
-  return users;
+  return data.slice(startIndex, endIndex);
 }
 
 /**
@@ -38,7 +32,7 @@ function mapUser(item) {
 
   let user = {
     id: item.id,
-    name: item.firstName,
+    name: `${item.firstName}, ${item.lastName}`,
     email: item.email,
     address: `${item.address.city}, ${item.address.country}`,
     phone: item.phone
@@ -84,16 +78,10 @@ function getUsers() {
  */
 function getAdmins(data) {
   if (data === null || data === undefined) {
-    return null;
+    return [];
   }
 
-  let admins = data.filter((d) => d.isAdmin);
-
-  if (admins === undefined) {
-    return null;
-  }
-
-  return admins;
+  return data.filter((d) => d.isAdmin);
 }
 
 /**
@@ -107,22 +95,16 @@ function filterUsers(data, search) {
     (data === null || data === undefined) &&
     (search === null || search === undefined)
   ) {
-    return null;
+    return [];
   }
 
-  let users = data.filter(
+  return data.filter(
     (d) =>
       d.firstName.includes(search) ||
-      d.lastname === search ||
+      d.lastName.includes(search) ||
       d.username.includes(search) ||
       d.email.includes(search)
   );
-
-  if (users === undefined) {
-    return null;
-  }
-
-  return users;
 }
 
 module.exports = {

@@ -63,7 +63,7 @@ test('test mapUser', () => {
     const mappedUser = mapUser(user);
 
     expect(mappedUser).toHaveProperty('id', user.id);
-    expect(mappedUser).toHaveProperty('name', user.firstName);
+    expect(mappedUser).toHaveProperty('name', `${user.firstName}, ${user.lastName}`);
     expect(mappedUser).toHaveProperty('email', user.email);
     expect(mappedUser).toHaveProperty('address', `${user.address.city}, ${user.address.country}`);
     expect(mappedUser).toHaveProperty('phone');
