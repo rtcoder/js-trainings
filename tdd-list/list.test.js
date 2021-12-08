@@ -26,7 +26,7 @@ test('test fail get user', () => {
 test('test paginate', () => {
     const page = paginate(data.users, 2, 30);
     expect(page.length).toBe(30);
-    expect(page[0].id).toBe(data.users[31].id);
+    expect(page[0].id).toBe(data.users[30].id);
 });
 
 test('test getAdmins', () => {
@@ -54,7 +54,7 @@ test('test filterUsers', () => {
     expect(user3.username).toBe('Steve_Bashirian50');
 
     const filtered4 = filterUsers(data.users, 'Jac');
-    expect(filtered4.length).toBe(4);
+    expect(filtered4.length).toBe(3);
 });
 
 
@@ -63,7 +63,7 @@ test('test mapUser', () => {
     const mappedUser = mapUser(user);
 
     expect(mappedUser).toHaveProperty('id', user.id);
-    expect(mappedUser).toHaveProperty('name', user.name);
+    expect(mappedUser).toHaveProperty('name', `${user.firstName}, ${user.lastName}`);
     expect(mappedUser).toHaveProperty('email', user.email);
     expect(mappedUser).toHaveProperty('address', `${user.address.city}, ${user.address.country}`);
     expect(mappedUser).toHaveProperty('phone');
